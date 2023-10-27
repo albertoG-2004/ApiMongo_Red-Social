@@ -20,7 +20,7 @@ export const registro = async (req, res) => {
 export const actualizar = async (req, res) =>{
     const id = req.params.id;
     const { email } = req.body;
-    // console.log(JSON.stringify(req.body));
+    
     try {
         Usuario.updateOne({
             _id: id,

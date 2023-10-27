@@ -20,29 +20,44 @@ export const comentar = async (req, res) =>{
 }
 
 export const editar = async (req, res) =>{
-    const { id } = req.params;
-    const {contenido} = req.body
+    const id = req.params.id;
+    const { contenido } = req.body;
+    // console.log(JSON.stringify(req.body));
     try {
-        Comentario.update({
-            id:id,
+        Comentario.updateOne({
+            _id: id,
         },
         {
             $set:{
-                contenido:contenido
+                contenido
             },
         })
-        .then((data)=>res.json({data}));
+        .then((data)=>res.json(data))
+        .catch((error)=>res.json ({message:error}));
     } catch (error) {
         res.status(500).json({error:"Error al actualizar los datos"});
     }
 }
 
 export const eliminar = async (req, res) =>{
-    const id = req.params;
+    const id = req.params.id;
     try{
         const respuesta = Comentario.findByIdAndDelete(id);
         res.json(respuesta);
     }catch(error){
         res.status(500).json({error: "Error al eliminar los datos"});
+    }
+}
+
+export const buscar = async (req, res) =>{
+    const id = req.params.id;
+    try {
+        Comentario.find({
+            publicacion:id
+        })
+        .then((data)=>res.json(data))
+        .catch((error)=>res.json ({message:error}));
+    } catch (error) {
+        res.status(500).json({error: "Error al buscar los documentos"});
     }
 }
