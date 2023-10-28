@@ -51,3 +51,19 @@ export const eliminar = async (req, res) =>{
         res.status(500).json({error: "Error al eliminar los datos"});
     }
 }
+
+
+// -----------------------hecho por Kato----------------------------------------
+
+export const buscar = async (req, res) =>{
+    const usuario = req.params.usuario;
+    try {
+        Publicacion.find({
+            usuario:usuario
+        } )
+        .then((data)=>res.json(data))
+        .catch((error)=>res.json ({message:error}));
+    } catch (error) {
+        res.status(500).json({error: "Error al buscar los documentos"});
+    }
+}

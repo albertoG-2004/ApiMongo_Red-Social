@@ -61,3 +61,30 @@ export const buscar = async (req, res) =>{
         res.status(500).json({error: "Error al buscar los documentos"});
     }
 }
+
+// ------------------------------------KATO HIZO ESTO------------------------------------
+export const eliminarPorFecha = async (req, res) =>{
+    const fecha = req.params.fecha;
+    try{
+        Comentario.deleteOne({
+            fechaCreacion: fecha
+        })
+        .then((data)=>res.json({data}))
+        .catch((error)=>res.json({message: error}))
+    }catch(error){
+        res.status(500).json({error: "Error al eliminar los datos"});
+    }
+}
+
+export const eliminarPorPubli = async (req, res) =>{
+    const publi = req.params.publi;
+    try{
+        Comentario.deleteOne({
+            publicacion: publi
+        }) 
+        .then((data)=>res.json({data}))
+        .catch((error)=>res.json({message: error}))
+    }catch(error){
+        res.status(500).json({error: "Error al eliminar los datos"});
+    }
+}

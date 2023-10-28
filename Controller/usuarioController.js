@@ -47,3 +47,16 @@ export const eliminar = async (req, res) =>{
     }
 }
 
+// ------------------------------hecho por kato--------------------------------
+export const buscar = async ()=>{
+    const email = req.params.email;
+    try {
+        Usuario.find({
+            email:email
+        } )
+        .then((data)=>res.json(data))
+        .catch((error)=>res.json ({message:error}));
+    } catch (error) {
+        res.status(500).json({error: "Error al buscar los documentos"});
+    }
+}
