@@ -6,7 +6,7 @@ rutasComentario.post('/comentar', comentar);
 rutasComentario.put('/editarcomentario/:id', editar);
 rutasComentario.delete('/eliminar/:id', eliminar);
 rutasComentario.get('/buscarcomen/:id', buscar);
-rutasComentario.delete('/eliminarPorFecha/:fechaCreacion', eliminarPorFecha);
+rutasComentario.delete('/eliminarPorFecha/:fecha', eliminarPorFecha);
 rutasComentario.delete('/eliminarPorPubli/:publi', eliminarPorPubli);
 
 

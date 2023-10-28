@@ -5,6 +5,6 @@ const rutasUsuario = Router();
 rutasUsuario.post('/registro', registro)
 rutasUsuario.put('/actualizar/:id', actualizar)
 rutasUsuario.delete('/eliminar/:id', eliminar)
-rutasUsuario.find('/buscar/:email', buscar)
+rutasUsuario.get('/buscar/:email', buscar)
 
 export default rutasUsuario;

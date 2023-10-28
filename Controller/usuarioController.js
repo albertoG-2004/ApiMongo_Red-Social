@@ -48,7 +48,7 @@ export const eliminar = async (req, res) =>{
 }
 
 // ------------------------------hecho por kato--------------------------------
-export const buscar = async ()=>{
+export const buscar = async (req, res)=>{
     const email = req.params.email;
     try {
         Usuario.find({
